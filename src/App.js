@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+//import Counter from './components/Counter/Counter';
+import TodoApp from './components/Todo/TodoApp';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Counter></Counter>
+        <TodoApp></TodoApp>
       </div>      
     );
   }
