@@ -1,11 +1,19 @@
 import React, {Component} from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 class TodoApp extends Component{
+
     render(){
         return (
             <div className="todo-App">
                 <h1>Todo app</h1>
-                <LoginComponent />
+                <Router>
+                    <>
+                        <Route path="/login" component={LoginComponent} />
+                        <Route path="/welcome" component={WelcomeComponent} />
+                        <Route path="/" exact component={LoginComponent} />
+                    </>
+                </Router>
             </div>
         )
     }
@@ -61,6 +69,18 @@ class LoginComponent extends Component{
                 Password: <input type="password" name="password" value={this.state.password} onChange={this.handleFieldChange}/>
                 <button onClick={this.loginClicked}>Login</button>
             </>
+        )
+    }
+}
+
+class WelcomeComponent extends Component{
+    render() {
+        return (
+        <>
+            <h1>
+                Welcome
+            </h1>
+        </>
         )
     }
 }
