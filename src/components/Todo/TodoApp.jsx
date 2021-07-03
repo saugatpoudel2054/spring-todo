@@ -11,7 +11,7 @@ class TodoApp extends Component{
                     <>
                     <Switch>
                         <Route path="/login" component={LoginComponent} />
-                        <Route path="/welcome" component={WelcomeComponent} />
+                        <Route path="/welcome/:name" component={WelcomeComponent} />
                         <Route path="/" exact component={LoginComponent} />
                         <Route component={ErrorComponent} />
                     </Switch>
@@ -54,7 +54,7 @@ class LoginComponent extends Component{
                     loginSuccess: 1
                 }
             });
-            this.props.history.push("/welcome");
+            this.props.history.push(`/welcome/${this.state.username}`);
         }else{
             this.setState((prevState) => {
                 return {
@@ -82,7 +82,7 @@ class WelcomeComponent extends Component{
         return (
         <>
             <h1>
-                Welcome
+                Welcome {this.props.match.params.name}
             </h1>
         </>
         )
